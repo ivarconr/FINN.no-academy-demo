@@ -11,12 +11,14 @@ import {
     LoginSuccess,
     Survey,
     NotFound,
+    MainPage
   } from 'containers';
 
 export default (store) => {
   return (
     <Route component={App}>
-      <Route path="/" component={Home}/>
+      <Route path="/" component={MainPage}/>
+      <Route path="/old-home" component={Home}/>
       <Route path="/widgets" component={Widgets}/>
       <Route path="/about" component={About}/>
       <Route path="/login" component={Login}/>
