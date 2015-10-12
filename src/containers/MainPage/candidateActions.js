@@ -7,3 +7,11 @@ export function candidatesSelected(candidates) {
     candidates
   };
 }
+
+
+export function projectSelected(project) {
+  return {
+    type: actions.PROJECT_SELECTED,
+    project
+  };
+}

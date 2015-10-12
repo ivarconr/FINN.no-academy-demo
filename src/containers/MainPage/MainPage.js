@@ -3,6 +3,7 @@ import candidates from './candidates';
 import * as candidateActions from './candidateActions';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+import StepManager from './StepManager';
 
 
 @connect(
@@ -12,17 +13,23 @@ import {bindActionCreators} from 'redux';
 export default class MainPage extends Component {
 
   static propTypes = {
-    candidatesSelected: PropTypes.func.isRequired
+    candidatesSelected: PropTypes.func.isRequired,
+    candidateReducer: PropTypes.object.isRequired,
+    projectSelected: PropTypes.func.isRequired,
   }
 
   handleCandidatesSelected = () => {
     this.props.candidatesSelected(candidates.slice(0, 2));
   }
 
+  handleProjectSelected = (project) => {
+    this.props.projectSelected(project);
+  }
+
   renderCandidates() {
-    return candidates.map((cand) => {
+    return candidates.map((cand, index) => {
       return (
-        <li>
+        <li key={`cand-${index}`}>
           <div className="row">
             <div className="col-xs-8">
               <p>{cand.fullname}</p>
@@ -39,25 +46,14 @@ export default class MainPage extends Component {
 
   render() {
     const styles = require('./MainPage.scss');
-    // require the logo image both from client and server
     return (
       <div className={styles.home}>
-        <div>
-          <div className="container">
-            <h1>Velg Kandidater</h1>
-          </div>
-            <div className="container">
-              <ul className="list-unstyled">
-                {this.renderCandidates()}
-              </ul>
-
-              <section className="row">
-                <button
-                  className="btn btn-lg btn-success"
-                  onClick={this.handleCandidatesSelected}>Kontakt valgte kandidater</button>
-              </section>
-          </div>
-        </div>
+        <StepManager
+          candidates={candidates}
+          currentStep={this.props.candidateReducer.currentStep}
+          selectCandidates={this.handleCandidatesSelected}
+          handleProjectSelected={this.handleProjectSelected}
+          />
       </div>
     );
   }
