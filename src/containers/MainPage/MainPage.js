@@ -18,10 +18,7 @@ export default class MainPage extends Component {
     candidateRemove: PropTypes.func.isRequired,
     candidateReducer: PropTypes.object.isRequired,
     projectSelected: PropTypes.func.isRequired,
-  }
-
-  handleProjectSelected = (project) => {
-    this.props.projectSelected(project);
+    goToPrevStep: PropTypes.func.isRequired
   }
 
   render() {
@@ -31,11 +28,9 @@ export default class MainPage extends Component {
         <StepManager
           candidates={candidates}
           currentStep={this.props.candidateReducer.currentStep}
+          project={this.props.candidateReducer.project}
           selectedCandidates={this.props.candidateReducer.selectedCandidates}
-          candidatesSelected={this.props.candidatesSelected}
-          candidateAdd={this.props.candidateAdd}
-          candidateRemove={this.props.candidateRemove}
-          handleProjectSelected={this.handleProjectSelected}
+          {...this.props}
           />
       </div>
     );

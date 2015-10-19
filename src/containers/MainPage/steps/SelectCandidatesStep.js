@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import CandidateItem from './CandidateItem';
 
 export default class SelectCandidatesStep extends Component {
 
@@ -15,37 +16,17 @@ export default class SelectCandidatesStep extends Component {
     this.state = {selected: this.props.selectedCandidates || []};
   }
 
-  isSelected = (cand) => {
-    return this.props.selectedCandidates.filter(selected => selected.fullname === cand.fullname).length > 0;
-  }
-
-  handleSelectCandidate(cand) {
-    if (this.isSelected(cand)) {
-      this.props.candidateRemove(cand);
-    } else {
-      this.props.candidateAdd(cand);
-    }
-  }
-
   renderCandidates = () => {
     return this.props.candidates.map((cand, index) => {
-      const checked = this.isSelected(cand);
-
+      const checked = this.props.selectedCandidates.filter(selected => selected.fullname === cand.fullname).length > 0;
       return (
-        <li key={`cand-${index}`}>
-          <div className="row">
-            <div className="col-xs-8">
-              <p>{cand.fullname}</p>
-            </div>
-            <div className="col-xs-4">
-              <div className="checkbox">
-                <label>
-                  <input type="checkbox" checked={checked} onChange={this.handleSelectCandidate.bind(this, cand)} /> velg
-                </label>
-              </div>
-            </div>
-          </div>
-        </li>
+        <CandidateItem
+          key={`cand-${index}`}
+          checked={checked}
+          candidate={cand}
+          candidateAdd={this.props.candidateAdd}
+          candidateRemove={this.props.candidateRemove}
+        />
       );
     });
   }
@@ -55,7 +36,7 @@ export default class SelectCandidatesStep extends Component {
     return (
         <div>
           <div className="container">
-            <h1>Velg Kandidater (1/3)</h1>
+            <h1>Velg Kandidater (1/4)</h1>
           </div>
             <div className="container">
               <ul className="list-unstyled">

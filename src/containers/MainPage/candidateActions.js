@@ -28,3 +28,11 @@ export function projectSelected(project) {
     project
   };
 }
+
+
+export function goToPrevStep(evt) {
+  evt.preventDefault();
+  return {
+    type: actions.PREV_STEP
+  };
+}

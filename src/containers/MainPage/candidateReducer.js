@@ -1,10 +1,10 @@
 import * as constants from './candidateConstants';
 
-
 const initialState = {
   currentStep: constants.steps.SELECT,
   selectedCandidates: [],
-  project: null
+  project: null,
+  prevSteps: []
 };
 
 export default function reducer(state = initialState, action = {}) {
@@ -23,17 +23,25 @@ export default function reducer(state = initialState, action = {}) {
       });
 
     case constants.CANDIDATES_SELECTED:
-
       return Object.assign({}, state, {
-        currentStep: constants.steps.ATTACH_PROJECT
+        currentStep: constants.steps.ATTACH_PROJECT,
+        prevSteps: [...state.prevSteps, state.currentStep]
       });
 
-
     case constants.PROJECT_SELECTED:
-
       return Object.assign({}, state, {
         currentStep: constants.steps.MESSAGE,
+        prevSteps: [...state.prevSteps, state.currentStep],
         project: action.project
+      });
+
+    case constants.PREV_STEP:
+      const steps = state.prevSteps;
+      const currentStep = steps.pop();
+
+      return Object.assign({}, state, {
+        currentStep: currentStep,
+        prevSteps: steps,
       });
 
     default:

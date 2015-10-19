@@ -11,12 +11,10 @@ export default class ConfirmStep extends Component {
     return (
       <div>
         <div className="container">
-          <h1>Bekreft (3/3)</h1>
+          <h1>Bekreft (4/4)</h1>
         </div>
           <div className="container">
-          <form>
-            <button onClick={(evt) => {evt.preventDefault(); this.props.handleConfirm();}}>Videre</button>
-          </form>
+          <p>Hurra din melding ble sendt!</p>
         </div>
     </div>
       );

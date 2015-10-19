@@ -1,6 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import * as constants from './candidateConstants';
-import {SelectCandidatesStep, AttachProjectStep} from './steps';
+import {SelectCandidatesStep, AttachProjectStep, MessageStep} from './steps';
 
 export default class StepManager extends Component {
   static propTypes = {
@@ -13,6 +13,8 @@ export default class StepManager extends Component {
           return <SelectCandidatesStep {...this.props}/>;
         case constants.steps.ATTACH_PROJECT:
           return <AttachProjectStep {...this.props}/>;
+        case constants.steps.MESSAGE:
+          return <MessageStep {...this.props}/>;
         default:
           return null;
       }
