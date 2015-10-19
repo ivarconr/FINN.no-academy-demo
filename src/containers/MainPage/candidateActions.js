@@ -1,10 +1,23 @@
 import * as actions from './candidateConstants';
 
 
-export function candidatesSelected(candidates) {
+export function candidatesSelected() {
   return {
-    type: actions.CANDIDATES_SELECTED,
-    candidates
+    type: actions.CANDIDATES_SELECTED
+  };
+}
+
+export function candidateAdd(candidate) {
+  return {
+    type: actions.CANDIDATE_ADD,
+    candidate
+  };
+}
+
+export function candidateRemove(candidate) {
+  return {
+    type: actions.CANDIDATE_REMOVE,
+    candidate
   };
 }
 

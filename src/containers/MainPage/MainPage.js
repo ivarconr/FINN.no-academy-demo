@@ -14,35 +14,15 @@ export default class MainPage extends Component {
 
   static propTypes = {
     candidatesSelected: PropTypes.func.isRequired,
+    candidateAdd: PropTypes.func.isRequired,
+    candidateRemove: PropTypes.func.isRequired,
     candidateReducer: PropTypes.object.isRequired,
     projectSelected: PropTypes.func.isRequired,
-  }
-
-  handleCandidatesSelected = () => {
-    this.props.candidatesSelected(candidates.slice(0, 2));
   }
 
   handleProjectSelected = (project) => {
     this.props.projectSelected(project);
   }
-
-  renderCandidates() {
-    return candidates.map((cand, index) => {
-      return (
-        <li key={`cand-${index}`}>
-          <div className="row">
-            <div className="col-xs-8">
-              <p>{cand.fullname}</p>
-            </div>
-            <div className="col-xs-4">
-              <button className="btn btn-default">Select</button>
-            </div>
-          </div>
-        </li>
-      );
-    });
-  }
-
 
   render() {
     const styles = require('./MainPage.scss');
@@ -51,7 +31,10 @@ export default class MainPage extends Component {
         <StepManager
           candidates={candidates}
           currentStep={this.props.candidateReducer.currentStep}
-          selectCandidates={this.handleCandidatesSelected}
+          selectedCandidates={this.props.candidateReducer.selectedCandidates}
+          candidatesSelected={this.props.candidatesSelected}
+          candidateAdd={this.props.candidateAdd}
+          candidateRemove={this.props.candidateRemove}
           handleProjectSelected={this.handleProjectSelected}
           />
       </div>

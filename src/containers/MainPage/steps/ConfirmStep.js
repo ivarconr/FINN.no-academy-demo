@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 
-export default class AttachProjectStep extends Component {
+export default class ConfirmStep extends Component {
 
   static propTypes = {
     handleProjectSelected: PropTypes.func.isRequired
@@ -11,11 +11,11 @@ export default class AttachProjectStep extends Component {
     return (
       <div>
         <div className="container">
-          <h1>Velg Prosjekt (2/3)</h1>
+          <h1>Bekreft (3/3)</h1>
         </div>
           <div className="container">
           <form>
-            <button onClick={(evt) => {evt.preventDefault(); this.props.handleProjectSelected();}}>Videre</button>
+            <button onClick={(evt) => {evt.preventDefault(); this.props.handleConfirm();}}>Videre</button>
           </form>
         </div>
     </div>
