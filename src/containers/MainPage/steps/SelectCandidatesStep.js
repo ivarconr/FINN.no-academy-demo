@@ -33,20 +33,21 @@ export default class SelectCandidatesStep extends Component {
 
 
   render() {
+    const style = {backgroundColor: 'silver', padding: 20};
     return (
-        <div>
+        <div style={style}>
           <div className="container">
             <h1>Velg Kandidater (1/4)</h1>
-          </div>
-            <div className="container">
-              <ul className="list-unstyled">
-                {this.renderCandidates.bind(this)()}
-              </ul>
-              <section className="row">
-                <button
-                  className="btn btn-lg btn-success"
-                  onClick={this.props.candidatesSelected}>Kontakt valgte kandidater</button>
-              </section>
+
+            <ul className="list-unstyled">
+              {this.renderCandidates.bind(this)()}
+            </ul>
+
+            <section className="row">
+              <button
+                className="btn btn-lg btn-success"
+                onClick={this.props.candidatesSelected}>Kontakt valgte kandidater</button>
+            </section>
           </div>
       </div>
     );

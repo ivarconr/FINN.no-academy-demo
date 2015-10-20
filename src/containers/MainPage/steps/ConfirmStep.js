@@ -34,7 +34,8 @@ export default class ConfirmStep extends Component {
             <br />
             Melding: {this.props.message}
           </p>
-          <ul>
+          <h3>Valgte kandidater</h3>
+          <ul className="list-unstyled">
             {candidates}
           </ul>
           <form>

@@ -5,7 +5,6 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import StepManager from './StepManager';
 
-
 @connect(
   state => state,
   dispatch => bindActionCreators(candidateActions, dispatch)
