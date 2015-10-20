@@ -3,8 +3,7 @@ import * as constants from './candidateConstants';
 import {
   SelectCandidatesStep,
   AttachProjectStep,
-  MessageStep,
-  ConfirmStep
+  MessageStep
 } from './steps';
 
 export default class StepManager extends Component {
@@ -20,8 +19,6 @@ export default class StepManager extends Component {
           return <AttachProjectStep {...this.props}/>;
         case constants.steps.MESSAGE:
           return <MessageStep {...this.props}/>;
-        case constants.steps.CONFIRM:
-          return <ConfirmStep {...this.props}/>;
         default:
           return null;
       }

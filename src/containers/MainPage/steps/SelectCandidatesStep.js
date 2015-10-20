@@ -33,9 +33,8 @@ export default class SelectCandidatesStep extends Component {
 
 
   render() {
-    const style = {backgroundColor: 'silver', padding: 20};
     return (
-        <div style={style}>
+        <div>
           <div className="container">
             <h1>Velg Kandidater (1/4)</h1>
 
