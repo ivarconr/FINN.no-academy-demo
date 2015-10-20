@@ -1,32 +1,32 @@
 const candidates = [
   {
     fullname: 'Michael Gunnulfsen',
-    gravatar: 'michaelgunulfsen@gmail.com',
+    email: 'michaelgunnulfsen@gmail.com',
     skills: ['Developer', 'Node.js', 'Redux', 'React', 'Webpack']
   },
   {
     fullname: 'Ivar Conradi',
-    gravatar: 'ivarconr@gmail.com',
+    email: 'ivarconr@gmail.com',
     skills: ['Arkitekt', 'CTO', 'Enterprise', 'Boss']
   },
   {
     fullname: 'Tom Sverre Evensen',
-    gravatar: 'tom.sverre@gmail.com',
+    email: 'tom.sverre.evensen@finn.no',
     skills: ['Java', 'basic team lead skills']
   },
   {
-    fullname: 'Cuong',
-    gravatar: 'cuong@gmail.com',
+    fullname: 'Cuong Van The Man',
+    email: 'cuong.van.truong@finn.no',
     skills: ['Vietnamesisk', 'Java', 'RazorDB']
   },
   {
     fullname: 'Jonathan Lillesæther',
-    gravatar: 'jona@gmail.com',
+    email: 'jonathan.lillesaeter@finn.no',
     skills: ['React.js', 'Python', 'Graphs']
   },
   {
-    fullname: 'Jesper',
-    gravatar: 'jesper@gmail.com',
+    fullname: 'Jesper Thøgersen',
+    email: 'jesper.thogersen@finn.no',
     skills: ['MS paint']
   }
 ];

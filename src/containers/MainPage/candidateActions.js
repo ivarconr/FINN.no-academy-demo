@@ -36,6 +36,11 @@ export function messageWritten(msg) {
   };
 }
 
+export function confirmContact() {
+  return {
+    type: actions.CONFIRM_CONTACT
+  };
+}
 
 export function goToPrevStep(evt) {
   evt.preventDefault();

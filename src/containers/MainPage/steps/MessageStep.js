@@ -6,11 +6,13 @@ export default class MessageStep extends Component {
     message: PropTypes.string,
     selectedCandidates: PropTypes.array,
     messageWritten: PropTypes.func,
+    confirmContact: PropTypes.func,
     goToPrevStep: PropTypes.func
   }
 
   handleSendMessage = (evt) => {
     evt.preventDefault();
+    this.props.confirmContact();
   }
 
   handleChange = (evt) => {
@@ -33,7 +35,7 @@ export default class MessageStep extends Component {
             <textarea cols="60" rows="5" onChange={this.handleChange} defaultValue={this.props.message} onBlur={this.handleSaveMessage}></textarea>
             <br />
             <button className="btn" onClick={this.props.goToPrevStep}>Forrige</button>
-            <button className="btn  btn-lg btn-success" onClick={this.handleSendMessage}>send melding</button>
+            <button className="btn  btn-lg btn-success" onClick={this.handleSendMessage}>neste</button>
           </form>
         </div>
     </div>

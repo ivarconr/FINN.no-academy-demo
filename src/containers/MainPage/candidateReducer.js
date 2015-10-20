@@ -41,6 +41,12 @@ export default function reducer(state = initialState, action = {}) {
         message: action.msg
       });
 
+    case constants.CONFIRM_CONTACT:
+      return Object.assign({}, state, {
+        currentStep: constants.steps.CONFIRM,
+        prevSteps: [...state.prevSteps, state.currentStep]
+      });
+
     case constants.PREV_STEP:
       const steps = state.prevSteps;
       const currentStep = steps.pop();
