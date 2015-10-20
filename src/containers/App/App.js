@@ -34,14 +34,6 @@ const meta = {
   }
 };
 
-const NavbarLink = ({to, children}) => (
-  <Link to={to} activeStyle={{
-    color: 'red'
-  }}>
-    {children}
-  </Link>
-);
-
 @connect(
     state => ({user: state.auth.user}),
     dispatch => bindActionCreators({logout, pushState}, dispatch))
@@ -84,7 +76,6 @@ export default class App extends Component {
   }
 
   render() {
-    const {user} = this.props;
     const styles = require('./App.scss');
     return (
       <div className={styles.app}>
@@ -93,26 +84,8 @@ export default class App extends Component {
           <div className="container">
             <Link to="/" className="navbar-brand">
               <div className={styles.brand}/>
-              React Redux Example
+              Talent Scout
             </Link>
-
-            <ul className="nav navbar-nav">
-              {user && <li><NavbarLink to="/chat">Chat</NavbarLink></li>}
-
-              <li><NavbarLink to="/widgets">Widgets</NavbarLink></li>
-              <li><NavbarLink to="/survey">Survey</NavbarLink></li>
-              <li><NavbarLink to="/about">About Us</NavbarLink></li>
-              {!user && <li><NavbarLink to="/login">Login</NavbarLink></li>}
-              {user && <li className="logout-link"><a href="/logout" onClick={::this.handleLogout}>Logout</a></li>}
-            </ul>
-            {user &&
-            <p className={styles.loggedInMessage + ' navbar-text'}>Logged in as <strong>{user.name}</strong>.</p>}
-            <ul className="nav navbar-nav navbar-right">
-              <li>
-                <a href="https://github.com/erikras/react-redux-universal-hot-example"
-                   target="_blank" title="View on Github"><i className="fa fa-github"/></a>
-              </li>
-            </ul>
           </div>
         </nav>
         <div className={styles.appContent}>

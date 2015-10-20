@@ -54,7 +54,7 @@ if (__DEVTOOLS__) {
   ReactDOM.render(<div>
     {component}
     <DebugPanel top right bottom key="debugPanel">
-      <DevTools store={store} monitor={LogMonitor} />
+      <DevTools store={store} monitor={LogMonitor} select={state => state.candidateReducer} />
     </DebugPanel>
   </div>, dest);
 }

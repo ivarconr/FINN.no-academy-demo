@@ -4,6 +4,7 @@ const initialState = {
   currentStep: constants.steps.SELECT,
   selectedCandidates: [],
   project: null,
+  message: null,
   prevSteps: []
 };
 
@@ -33,6 +34,11 @@ export default function reducer(state = initialState, action = {}) {
         currentStep: constants.steps.MESSAGE,
         prevSteps: [...state.prevSteps, state.currentStep],
         project: action.project
+      });
+
+    case constants.MESSAGE_WRITTEN:
+      return Object.assign({}, state, {
+        message: action.msg
       });
 
     case constants.PREV_STEP:

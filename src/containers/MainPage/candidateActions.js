@@ -29,6 +29,13 @@ export function projectSelected(project) {
   };
 }
 
+export function messageWritten(msg) {
+  return {
+    type: actions.MESSAGE_WRITTEN,
+    msg
+  };
+}
+
 
 export function goToPrevStep(evt) {
   evt.preventDefault();

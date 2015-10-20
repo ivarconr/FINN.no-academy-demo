@@ -29,6 +29,7 @@ export default class MainPage extends Component {
           candidates={candidates}
           currentStep={this.props.candidateReducer.currentStep}
           project={this.props.candidateReducer.project}
+          message={this.props.candidateReducer.message}
           selectedCandidates={this.props.candidateReducer.selectedCandidates}
           {...this.props}
           />
