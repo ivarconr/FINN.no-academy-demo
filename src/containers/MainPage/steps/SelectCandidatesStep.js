@@ -37,7 +37,6 @@ export default class SelectCandidatesStep extends Component {
         <div>
           <div className="container">
             <h1>Velg Kandidater (1/4)</h1>
-
             <ul className="list-unstyled">
               {this.renderCandidates.bind(this)()}
             </ul>

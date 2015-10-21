@@ -3,8 +3,6 @@ import { Link } from 'react-router';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import DocumentMeta from 'react-document-meta';
-import { isLoaded as isInfoLoaded, load as loadInfo } from 'redux/modules/info';
-import { isLoaded as isAuthLoaded, load as loadAuth, logout } from 'redux/modules/auth';
 import { pushState } from 'redux-router';
 
 const title = 'React Redux Example';
@@ -35,45 +33,17 @@ const meta = {
 };
 
 @connect(
-    state => ({user: state.auth.user}),
-    dispatch => bindActionCreators({logout, pushState}, dispatch))
+    state => state,
+    dispatch => bindActionCreators({pushState}, dispatch))
 export default class App extends Component {
   static propTypes = {
     children: PropTypes.object.isRequired,
-    user: PropTypes.object,
-    logout: PropTypes.func.isRequired,
     pushState: PropTypes.func.isRequired
   };
 
   static contextTypes = {
     store: PropTypes.object.isRequired
   };
-
-  componentWillReceiveProps(nextProps) {
-    if (!this.props.user && nextProps.user) {
-      // login
-      this.props.pushState(null, '/loginSuccess');
-    } else if (this.props.user && !nextProps.user) {
-      // logout
-      this.props.pushState(null, '/');
-    }
-  }
-
-  static fetchData(getState, dispatch) {
-    const promises = [];
-    if (!isInfoLoaded(getState())) {
-      promises.push(dispatch(loadInfo()));
-    }
-    if (!isAuthLoaded(getState())) {
-      promises.push(dispatch(loadAuth()));
-    }
-    return Promise.all(promises);
-  }
-
-  handleLogout(event) {
-    event.preventDefault();
-    this.props.logout();
-  }
 
   render() {
     const styles = require('./App.scss');

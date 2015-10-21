@@ -28,6 +28,7 @@ export default class AttachProjectStep extends Component {
               <option value="Prosjekt 3">Prosjekt 3</option>
               <option value="Prosjekt 4">Prosjekt 4</option>
               <option value="Prosjekt 5">Prosjekt 5</option>
+              <option value="Prosjekt 6">Prosjekt 6</option>
             </select>
             <br />
             <button className="btn" onClick={this.props.goToPrevStep}>Forrige</button>
